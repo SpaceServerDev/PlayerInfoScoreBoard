@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace space\yurisi\Task;
 
-use onebone\economyapi\EconomyAPI;
+use space\yurisi\SecureCoinAPI\SecureCoinAPI;
 
 use pocketmine\network\mcpe\protocol\{RemoveObjectivePacket, SetDisplayObjectivePacket, SetScorePacket};
 use pocketmine\network\mcpe\protocol\types\ScorePacketEntry;
@@ -23,7 +23,7 @@ class SendTask extends Task {
     $player = $this->player;
     $this->RemoveData($player);
     $this->setupData($player);
-    $this->sendData($player, "§e所持金: " . EconomyAPI::getInstance()->myMoney($player), 1);
+    $this->sendData($player, "§e所持金: " . SecureCoinAPI::getInstance()->getCoin($player->getName()), 1);
     $this->sendData($player, "§b座標: " . $player->getPosition()->getFloorX() . "," . $player->getPosition()->getFloorY() . "," . $player->getPosition()->getFloorZ(), 2);
     $this->sendData($player, "§bワールド: " . $player->getWorld()->getFolderName(), 3);
     $this->sendData($player, "§c現在時刻: " . date("G時i分s秒"), 4);
