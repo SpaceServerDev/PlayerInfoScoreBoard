@@ -1,6 +1,6 @@
 # PlayerInfoScoreBoard 
 
-## EconomyAPI版 
+## SecureCoinAPI版 
 
 
 ### 概要
